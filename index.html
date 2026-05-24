@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Visibility Pro — Get Your Dental Practice Found by AI Search</title>
+    <meta name="description" content="AI Visibility Pro helps dental practices appear in AI search results — ChatGPT, Google AI Overviews, Perplexity, and more. Free AI visibility audit for Austin dental practices.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://varunrau.github.io/aivisibilitypro/">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a2e;
+            line-height: 1.6;
+            background: #fff;
+        }
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: #2563eb; color: #fff; }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+        .btn-outline { background: transparent; color: #2563eb; border: 2px solid #2563eb; }
+        .btn-outline:hover { background: #2563eb; color: #fff; }
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 14px 0;
+        }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.25rem; font-weight: 800; color: #1a1a2e; }
+        .logo span { color: #2563eb; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #555; transition: color 0.2s; }
+        .nav-links a:hover { color: #2563eb; }
+        .nav-cta { padding: 10px 22px !important; font-size: 0.9rem !important; }
+        .mobile-menu { display: none; background: none; border: none; cursor: pointer; }
+        .mobile-menu svg { width: 28px; height: 28px; }
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f3ff 100%);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+        .hero h1 .highlight { color: #2563eb; }
+        .hero p {
+            font-size: 1.15rem;
+            color: #475569;
+            max-width: 640px;
+            margin: 0 auto 32px;
+        }
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+        .hero-trust { font-size: 0.85rem; color: #64748b; margin-top: 12px; }
+        .stats-bar { background: #0f172a; padding: 28px 0; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        .stat-item .stat-number { font-size: 1.75rem; font-weight: 800; color: #60a5fa; }
+        .stat-item .stat-label { font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+        .problem { padding: 80px 0; background: #fff; }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 48px;
+        }
+        .problem-card {
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+        .problem-card:hover { border-color: #2563eb; box-shadow: 0 4px 16px rgba(37,99,235,0.1); }
+        .problem-icon { font-size: 2rem; margin-bottom: 12px; }
+        .problem-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .problem-card p { font-size: 0.95rem; color: #555; }
+        .how-it-works { padding: 80px 0; background: #f8fafc; }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .step { text-align: center; position: relative; }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .step p { font-size: 0.9rem; color: #555; }
+        .social-proof { padding: 60px 0; background: #fff; text-align: center; }
+        .proof-stats { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+        .proof-item .proof-number { font-size: 2.5rem; font-weight: 800; color: #2563eb; }
+        .proof-item .proof-label { font-size: 0.9rem; color: #555; }
+        .pricing { padding: 80px 0; background: #f8fafc; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 48px;
+        }
+        .pricing-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 36px 28px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .pricing-card.featured {
+            border: 2px solid #2563eb;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.12);
+            position: relative;
+        }
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -14px; left: 50%; transform: translateX(-50%);
+            background: #2563eb;
+            color: #fff;
+            padding: 4px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .pricing-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .pricing-card .price { font-size: 2.5rem; font-weight: 800; color: #0f172a; margin: 16px 0 4px; }
+        .pricing-card .price-detail { font-size: 0.85rem; color: #94a3b8; margin-bottom: 24px; }
+        .pricing-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+        .pricing-card li { padding: 8px 0; font-size: 0.9rem; color: #475569; border-bottom: 1px solid #f1f5f9; }
+        .pricing-card li::before { content: "✓ "; color: #22c55e; font-weight: 700; }
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e40af, #2563eb, #3b82f6);
+            text-align: center;
+            color: #fff;
+        }
+        .cta-section h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 16px; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 32px; }
+        .cta-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .cta-form input[type="email"] {
+            flex: 1;
+            min-width: 240px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 1rem;
+        }
+        .cta-form input::placeholder { color: rgba(255,255,255,0.7); }
+        .cta-form .btn { background: #fff; color: #2563eb; font-weight: 700; }
+        .cta-form .btn:hover { background: #f0f4ff; }
+        .faq { padding: 80px 0; background: #fff; }
+        .faq-list { max-width: 720px; margin: 48px auto 0; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 20px 0; }
+        .faq-question {
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after { content: "+"; font-size: 1.5rem; color: #2563eb; }
+        .faq-item.active .faq-question::after { content: "−"; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 200px; }
+        .faq-answer p { padding-top: 12px; font-size: 0.95rem; color: #555; }
+        footer { background: #0f172a; color: #94a3b8; padding: 48px 0 28px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
+        .footer-brand .logo { color: #fff; }
+        .footer-brand p { margin-top: 8px; font-size: 0.9rem; max-width: 300px; }
+        .footer-links h4 { color: #fff; font-size: 0.9rem; margin-bottom: 12px; }
+        .footer-links a { display: block; font-size: 0.85rem; padding: 4px 0; transition: color 0.2s; }
+        .footer-links a:hover { color: #60a5fa; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; font-size: 0.8rem; text-align: center; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 120px 0 60px; }
+            .proof-stats { gap: 32px; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .stat-item .stat-number { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="container">
+        <div class="logo">AI Visibility<span>Pro</span></div>
+        <div class="nav-links">
+            <a href="#problem">The Problem</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="#cta" class="btn btn-primary nav-cta">Free Audit</a>
+        </div>
+        <button class="mobile-menu" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Toggle menu">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </div>
+</nav>
+<section class="hero">
+    <div class="container">
+        <p class="section-label">AI Search Optimization for Dental Practices</p>
+        <h1>Your Patients Are Asking AI<br>for a Dentist.<br><span class="highlight">Is It Recommending You?</span></h1>
+        <p>2.5 billion people use Google AI Overviews every month. 1 billion use AI Mode. ChatGPT has 900 million weekly users. When patients ask AI for a dentist recommendation — your practice needs to be the answer.</p>
+        <div class="hero-cta">
+            <a href="#cta" class="btn btn-primary">Get Your Free AI Audit →</a>
+            <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+        </div>
+        <p class="hero-trust">✓ Free audit, no obligation &nbsp;·&nbsp; ✓ 20+ audits completed &nbsp;·&nbsp; ✓ Austin, TX based</p>
+    </div>
+</section>
+<section class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">2.5B</div>
+                <div class="stat-label">Monthly AI Overview users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">58%</div>
+                <div class="stat-label">Click drop from AI answers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">60%</div>
+                <div class="stat-label">Of searches end with zero clicks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">900M</div>
+                <div class="stat-label">ChatGPT weekly active users</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="problem" id="problem">
+    <div class="container" style="text-align:center;">
+        <p class="section-label">The Problem</p>
+        <h2 class="section-title">AI Is Answering Your Patients' Questions.<br>But It's Not Recommending You.</h2>
+        <p class="section-subtitle">Google just rebuilt Search with AI — "the biggest upgrade in 25 years." Patients are getting AI-generated answers instead of clicking links. If AI doesn't know your practice, you're invisible.</p>
+        <div class="problem-grid" style="text-align:left;">
+            <div class="problem-card">
+                <div class="problem-icon">🤖</div>
+                <h3>AI Can't Find You</h3>
+                <p>When patients ask ChatGPT or Google AI for a dentist, your practice doesn't appear in the recommendations. The AI simply doesn't know you exist.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🔀</div>
+                <h3>Entity Confusion</h3>
+                <p>AI systems confuse your practice with others — wrong locations, mixed-up reviews, or outdated names. Your digital identity is fragmented.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📉</div>
+                <h3>Click-Through Collapse</h3>
+                <p>Position #1 on Google used to get 27% of clicks. With AI answers, it's down to 11%. Traditional SEO alone isn't enough anymore.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🗣️</div>
+                <h3>Voice & AI Assistants</h3>
+                <p>Google agents can now call businesses to book appointments. If your practice isn't AI-optimized, you're losing patients to competitors who are.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📱</div>
+                <h3>New Search Behavior</h3>
+                <p>Conversational queries jumped from 5% to 20%. Patients ask full questions like "best dentist for implants near me" — and AI gives them one answer.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⏰</div>
+                <h3>Constant Algorithm Changes</h3>
+                <p>Google has launched 4 ranking updates in 2026 alone, including a major core update in May. Rankings are shifting — are you keeping up?</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="how-it-works" id="how-it-works">
+    <div class="container" style="text-align:center;">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">From Invisible to Recommended<br>in 4 Steps</h2>
+        <p class="section-subtitle">We don't guess — we test how AI actually sees your practice, then fix it.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>AI Visibility Audit</h3>
+                <p>We test your practice across ChatGPT, Google AI, Perplexity, and more. You get a detailed report showing exactly where you're visible — and where you're not.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Entity Resolution</h3>
+                <p>We fix how AI understands your practice — resolving name confusion, syncing location data, and building a clear digital identity across all platforms.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>AI-Ready Optimization</h3>
+                <p>Structured data, schema markup, and content optimization designed specifically for AI engines — not just Google's traditional algorithm.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Monitor & Adapt</h3>
+                <p>AI search evolves weekly. We continuously track your visibility, adapt to algorithm updates, and ensure you stay the recommended practice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="social-proof">
+    <div class="container">
+        <div class="proof-stats">
+            <div class="proof-item">
+                <div class="proof-number">20+</div>
+                <div class="proof-label">AI Audits Completed</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">2</div>
+                <div class="proof-label">Verticals (Dental + Med Spa)</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">156%</div>
+                <div class="proof-label">Avg. Maps Visibility Boost</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">#1</div>
+                <div class="proof-label">Finding: Entity Confusion</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pricing" id="pricing">
+    <div class="container" style="text-align:center;">
+        <p class="section-label">Pricing</p>
+        <h2 class="section-title">Investment That Pays for Itself<br>With One New Patient</h2>
+        <p class="section-subtitle">Transparent pricing. No long-term contracts. Start with a free audit to see exactly what needs fixing.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Growth</h3>
+                <p style="color:#555;font-size:0.9rem;">Single Location</p>
+                <div class="price">$3,000</div>
+                <div class="price-detail">one-time setup + $1,500/mo retainer</div>
+                <ul>
+                    <li>Complete AI visibility audit</li>
+                    <li>Entity resolution & cleanup</li>
+                    <li>Schema markup implementation</li>
+                    <li>Google Business Profile optimization</li>
+                    <li>Monthly visibility monitoring</li>
+                    <li>Quarterly strategy reviews</li>
+                </ul>
+                <a href="#cta" class="btn btn-outline" style="width:100%;">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Professional</h3>
+                <p style="color:#555;font-size:0.9rem;">Multi-Location (2-5)</p>
+                <div class="price">$5,000</div>
+                <div class="price-detail">one-time setup + $2,500/mo retainer</div>
+                <ul>
+                    <li>Everything in Growth, plus:</li>
+                    <li>Multi-location entity management</li>
+                    <li>AI-optimized content strategy</li>
+                    <li>Competitor AI visibility tracking</li>
+                    <li>Monthly performance reports</li>
+                    <li>Priority support & biweekly calls</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary" style="width:100%;">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <p style="color:#555;font-size:0.9rem;">6+ Locations / DSO Groups</p>
+                <div class="price">$10,000+</div>
+                <div class="price-detail">custom setup + $5,000+/mo retainer</div>
+                <ul>
+                    <li>Everything in Professional, plus:</li>
+                    <li>Custom AI visibility dashboard</li>
+                    <li>Cross-location brand unification</li>
+                    <li>ChatGPT & Perplexity optimization</li>
+                    <li>Dedicated account manager</li>
+                    <li>Weekly strategy sessions</li>
+                </ul>
+                <a href="#cta" class="btn btn-outline" style="width:100%;">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq" id="faq">
+    <div class="container" style="text-align:center;">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Common Questions</h2>
+        <div class="faq-list" style="text-align:left;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>What is AI Visibility and why does it matter for dentists?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>AI Visibility refers to how well your dental practice appears in AI-generated search results — including Google AI Overviews, ChatGPT, Perplexity, and voice assistants. With 2.5 billion monthly AI Overview users and 60% of searches ending without a click, being visible in AI results is now essential for attracting new patients.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>How is this different from traditional SEO?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Traditional SEO focuses on ranking in Google's list of links. AI Visibility optimization (also called GEO/AEO) ensures your practice is recommended by AI systems that generate answers directly. It builds on SEO but adds entity resolution, structured data, and AI-specific content optimization.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>What does the free audit include?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We test your practice across multiple AI platforms — ChatGPT, Google AI Mode, Perplexity, and more — documenting exactly how each AI describes and recommends (or doesn't recommend) your practice. You receive a detailed report with specific findings and recommendations.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>How long until I see results?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Entity resolution and schema fixes can show improvements within 2-4 weeks. Full AI visibility optimization typically shows significant results within 60-90 days, with continuous improvement as AI systems re-index your optimized content.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Do I need to replace my current SEO provider?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. AI Visibility Pro complements your existing SEO. We focus specifically on the AI layer — making sure your practice is understood and recommended by AI systems. Your SEO provider handles traditional rankings; we handle AI recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cta-section" id="cta">
+    <div class="container">
+        <h2>Get Your Free AI Visibility Audit</h2>
+        <p>See exactly how AI search engines see your dental practice — and what's needed to become their top recommendation.</p>
+        <form class="cta-form" action="https://formspree.io/f/xpwrqkva" method="POST">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <input type="hidden" name="_subject" value="New AI Visibility Audit Request">
+            <button type="submit" class="btn">Get Free Audit →</button>
+        </form>
+        <p style="font-size:0.85rem;opacity:0.7;margin-top:16px;">Free, no obligation. We'll respond within 24 hours.</p>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">AI Visibility<span style="color:#60a5fa;">Pro</span></div>
+                <p>Helping dental practices get found by AI search. Based in Austin, TX.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#problem">The Problem</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <a href="#cta">Free AI Audit</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AI Visibility Pro. All rights reserved. Austin, TX.</p>
+        </div>
+    </div>
+</footer>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI Visibility Pro",
+    "description": "AI search optimization service for dental practices. We help dentists get found in ChatGPT, Google AI Overviews, Perplexity, and other AI search engines.",
+    "url": "https://varunrau.github.io/aivisibilitypro/",
+    "areaServed": {
+        "@type": "City",
+        "name": "Austin",
+        "addressRegion": "TX"
+    },
+    "serviceType": ["AI Visibility Optimization", "Generative Engine Optimization", "Answer Engine Optimization", "Dental Marketing"],
+    "priceRange": "$$"
+}
+</script>
+</body>
+</html>
